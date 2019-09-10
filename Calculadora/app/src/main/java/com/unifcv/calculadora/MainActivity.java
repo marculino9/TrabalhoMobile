@@ -10,9 +10,9 @@ import android.widget.EditText;
 import android.widget.TextView;
 
 public class MainActivity extends AppCompatActivity {
-    private Button btn1,btn2,btn3,btn4,btn5,btn6,btn7,btn8,btn9,btn0,btnSoma,btnDiv,btnSub,btnMult,btnApagar,btnVirgula,btnIgual;
+    private Button btn1,btn2,btn3,btn4,btn5,btn6,btn7,btn8,btn9,btn0,btnSoma,btnDiv,btnSub,btnMult,btnApagar,btnPonto,btnIgual;
 
-    boolean Soma,Multi,Div,Sub;
+    boolean Soma,Multi,Div,Sub, Ponto = true;
 
     double var1, var2;
 
@@ -42,7 +42,7 @@ public class MainActivity extends AppCompatActivity {
         btnIgual = (Button) findViewById(R.id.igual);
         btnDiv = (Button) findViewById(R.id.dividir);
         btnApagar = (Button) findViewById(R.id.apagar);
-        btnVirgula = (Button) findViewById(R.id.virgula);
+        btnPonto = (Button) findViewById(R.id.ponto);
         Result = (EditText) findViewById(R.id.resultado);
 
         btn0.setOnClickListener(new View.OnClickListener() {
@@ -105,10 +105,16 @@ public class MainActivity extends AppCompatActivity {
                 Result.setText(Result.getText() + "9");
             }
         });
-        btnVirgula.setOnClickListener(new View.OnClickListener() {
+        btnPonto.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Result.setText(Result.getText() + ",");
+                if (Ponto == false)
+                {
+
+                }else {
+                    Result.setText(Result.getText() + ".");
+                    Ponto = false;
+                }
             }
         });
 
@@ -116,14 +122,16 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Result.setText(null);
+                Ponto = true;
             }
         });
 
         btnSoma.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                var1=Integer.parseInt(Result.getText()+"");
+                var1=Double.parseDouble(Result.getText()+"");
                 Soma=true;
+                Ponto = true;
                 Result.setText(null);
             }
         });
@@ -131,8 +139,9 @@ public class MainActivity extends AppCompatActivity {
         btnSub.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                var1=Integer.parseInt(Result.getText()+"");
+                var1=Double.parseDouble(Result.getText()+"");
                 Sub=true;
+                Ponto = true;
                 Result.setText(null);
             }
         });
@@ -140,8 +149,9 @@ public class MainActivity extends AppCompatActivity {
         btnMult.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                var1=Integer.parseInt(Result.getText()+"");
+                var1=Double.parseDouble(Result.getText()+"");
                 Multi=true;
+                Ponto = true;
                 Result.setText(null);
             }
         });
@@ -149,8 +159,9 @@ public class MainActivity extends AppCompatActivity {
         btnDiv.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                var1=Integer.parseInt(Result.getText()+"");
+                var1=Double.parseDouble(Result.getText()+"");
                 Div=true;
+                Ponto = true;
                 Result.setText(null);
             }
         });
@@ -158,7 +169,7 @@ public class MainActivity extends AppCompatActivity {
         btnIgual.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                var2 = Integer.parseInt(Result.getText()+"");
+                var2 = Double.parseDouble(Result.getText()+"");
                 if (Soma==true)
                 {
                     Result.setText(var1+var2+"");
@@ -182,7 +193,7 @@ public class MainActivity extends AppCompatActivity {
                     }
                     else
                     {
-                        Result.setText("Nao funciona porra");
+                        Result.setText("Nao funciona");
                     }
                 }
             }

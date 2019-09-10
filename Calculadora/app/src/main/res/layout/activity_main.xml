@@ -146,7 +146,7 @@
             android:id="@+id/dividir"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="/"
+            android:text="≑"
             android:padding="30dp"
             android:layout_marginLeft="12dp"
             android:layout_weight="0.25"/>
@@ -158,10 +158,10 @@
         android:orientation="horizontal">
 
         <Button
-            android:id="@+id/virgula"
+            android:id="@+id/ponto"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text=","
+            android:text="."
             android:padding="30dp"
             android:layout_marginLeft="12dp"
             android:layout_weight="0.25"/>
