@@ -8,19 +8,16 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
+import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity {
     private Button btn1,btn2,btn3,btn4,btn5,btn6,btn7,btn8,btn9,btn0,btnSoma,btnDiv,btnSub,btnMult,btnApagar,btnPonto,btnIgual;
-
     boolean Soma,Multi,Div,Sub, Ponto = true;
-
     double var1, var2;
-
     private EditText Result;
-
-    private AlertDialog alerta;
-
-    private float n1,n2;
+//    private AlertDialog alerta;
+//
+//    private float n1,n2;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -187,13 +184,13 @@ public class MainActivity extends AppCompatActivity {
                 }
                 if (Div==true)
                 {
-                    if ((var1 != 0) && (var2 != 0)){
+                    if (var2 != 0){
                         Result.setText(var1/var2+"");
                         Div=false;
                     }
                     else
                     {
-                        Result.setText("Nao funciona");
+                        Toast.makeText(MainActivity.this, "Não é possível dividir um número por zero", Toast.LENGTH_LONG).show();
                     }
                 }
             }
